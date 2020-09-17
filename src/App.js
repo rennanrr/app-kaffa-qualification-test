@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, Suspense } from 'react';
+import { Link, NavLink, Route, withRouter } from 'react-router-dom';
+import Home from './Screens/Home';
 
-function App() {
+function App(props) {
+  console.log(props.location);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="">
+      <header className="topnav">
+        <NavLink exact to="/">Home</NavLink>
+        <NavLink to="/cpnj">CNPJ</NavLink>
+        <NavLink to="/rectangles">Rectangles</NavLink>
+        <NavLink to="/todolist">To Do List</NavLink>
+        <NavLink to="/worldclock">World Clock</NavLink>
+        <NavLink to="/diagram">Diagram (Order Management)</NavLink>
       </header>
+      <Fragment>
+        <Suspense fallback={
+            <div className="loader-container">
+                <div className="loader-container-inner">
+                    <h6 className="mt-5">
+                        Carregando
+                        <small>Quase lá</small>
+                    </h6>
+                </div>
+            </div>
+        }>
+            <Route path="/" component={Home} />
+        </Suspense>
+      </Fragment>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
