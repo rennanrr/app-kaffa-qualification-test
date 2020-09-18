@@ -1,13 +1,11 @@
 .App {
   text-align: center;
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-logo {
@@ -69,4 +67,67 @@
 .topnav a.active {
   background-color: #f89500;
   color: white;
+}
+/* Add loader */
+.loader-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  text-align: center;
+  line-height: 1.6rem; 
+}
+
+.loader-container .loader-container-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 1.5rem; 
+}
+
+.loader-container small {
+  margin: 10px 0 0;
+  display: block;
+  color: #868e96;
+  font-weight: normal; 
+}
+
+.loader-container h3 {
+    text-align: center;
+    display: block; 
+  }
+  
+input {
+  font-size: 1rem;
+  margin: 0.25rem;
+  min-width: 170px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px black solid;
+}
+
+.input-valid{
+  border: green 1px solid;
+  background: url("./done.svg") no-repeat 95% 50%;
+
+}
+.input-invalid{
+  border: red 1px solid;
+  background: url("./error.svg") no-repeat 95% 50%;
+}
+
+.message-invalid{
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 0;
+  color:red;
+  font-size: small;
+}
+.message-valid{
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 0;
+  color:green;
+  font-size: small;
 }
