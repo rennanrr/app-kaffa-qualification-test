@@ -33,18 +33,34 @@ function AreaOfIntersection(a, b) {
 }
 
 //Exercise Three
-function Intersects(A, B) {
-  let a = A[0][0] <= A[1][0] ? {x1: A[0][0], x2: A[1][0]} : {x1: A[1][0], x2: A[0][0]};
-      a = A[0][1] <= A[1][1] ? {...a, y1: A[0][1], y2: A[1][1]} : {...a, y1: A[1][1], y2: A[0][1]};
-  let b = B[0][0] <= B[1][0] ? {x1: B[0][0], x2: B[1][0]} : {x1: B[1][0], x2: B[0][0]};
-      b = B[0][1] <= B[1][1] ? {...b, y1: B[0][1], y2: B[1][1]} : {...b, y1: B[1][1], y2: B[0][1]};
+function Intersects(rectangles) {
+  let sorted = {};
+  rectangles.map((rectangle, index) => {
+    sorted[index] = rectangle[0][0] <= rectangle[1][0] ? 
+      {...sorted[index], x1: rectangle[0][0], x2: rectangle[1][0]} 
+    : 
+      {...sorted[index], x1: rectangle[1][0], x2: rectangle[0][0]};
 
-  if(a.x1 <= b.x2 && b.x1 <= a.x2 && a.y1 <= b.y2 && b.y1 <= a.y2 ){
+      sorted[index] = rectangle[0][1] <= rectangle[1][1] ? 
+      {...sorted[index], y1: rectangle[0][1], y2: rectangle[1][1]} 
+    : 
+      {...sorted[index], y1: rectangle[1][1], y2: rectangle[0][1]};
 
-    console.log(AreaOfIntersection(a,b));
-    return true;
-  }else
-    return false;
+
+  });
+  let intersect = false;
+  for(let i = 0; i < Object.keys(sorted).length; i++) {
+    for(let j = 0; j < Object.keys(sorted).length; j++) {
+      if(sorted[i] != sorted[j]) {
+        if(sorted[i].x1 <= sorted[j].x2 && sorted[j].x1 <= sorted[i].x2 &&
+            sorted[i].y1 <= sorted[j].y2 && sorted[j].y1 <= sorted[i].y2)
+          intersect = true;
+        else
+          intersect = false;
+      }
+    }
+  }
+    return intersect;
 }
 
 function Rectangles() {
@@ -56,9 +72,11 @@ function Rectangles() {
     }
   }
   const [A, setA] = useState([[11,11], [3,5]]);
-  const [B, setB] = useState([[11,11], [15,13]]);
+  const [B, setB] = useState([[7,2], [13,7]]);
+  const [C, setC] = useState([[11,11], [15,13]]);
+  const [D, setD] = useState([[1,1], [20,20]]);
 
-  console.log(Intersects(A,B));
+  console.log(Intersects([A, B, C, D]));
 
   return (
     <Fragment>
