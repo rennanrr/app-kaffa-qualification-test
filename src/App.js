@@ -1,6 +1,6 @@
 import React, { Fragment, Suspense, lazy } from 'react';
 import { NavLink, Redirect, Route, withRouter } from 'react-router-dom';
-import logo from './logo.svg';
+import logo from './Assets/Icons/logo.svg';
 
 const Home = lazy(() => import('./Screens/Home'));
 const Cnpj = lazy(() => import('./Screens/Cnpj'));
