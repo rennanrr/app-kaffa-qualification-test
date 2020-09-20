@@ -101,7 +101,6 @@
 input {
   font-size: 1rem;
   margin: 0.25rem;
-  min-width: 170px;
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px black solid;
@@ -133,5 +132,9 @@ input {
 }
 
 .input-number{
-  max-width: 10px;
+  max-width: 35px;
+}
+
+.input-name{
+  max-width: 35px;
 }
