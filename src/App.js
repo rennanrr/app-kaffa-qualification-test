@@ -1,6 +1,7 @@
 import React, { Fragment, Suspense, lazy } from 'react';
 import { NavLink, Redirect, Route, withRouter } from 'react-router-dom';
 import logo from './Assets/Icons/logo.svg';
+import TodoList from './Screens/TodoList';
 
 const Home = lazy(() => import('./Screens/Home'));
 const Cnpj = lazy(() => import('./Screens/Cnpj'));
@@ -47,11 +48,18 @@ function App() {
             <Route path="/cnpj" component={Cnpj} />
         </Suspense>
 
-        {/* CNPJ Validation Screen */}
+        {/* Rectangles Screen */}
         <Suspense fallback={
           <LoadMessage name={"Rectangles"}></LoadMessage>
         }>
             <Route path="/rectangles" component={Rectangles} />
+        </Suspense>
+
+        {/* Todo List Screen */}
+        <Suspense fallback={
+          <LoadMessage name={"Todo List"}></LoadMessage>
+        }>
+            <Route path="/todolist" component={TodoList} />
         </Suspense>
 
         {/* In case of root '/' path, redirect to home */}
