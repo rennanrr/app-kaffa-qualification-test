@@ -1,6 +1,6 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: process.env.API_URL ? process.env.API_URL : "http://localhost:3000/api/v1/"
+  baseURL: "https://api-kaffa-test.herokuapp.com/"
 });
 export default Api;
