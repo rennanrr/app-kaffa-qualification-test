@@ -53,6 +53,7 @@ import Api from '../services/Kaffa';
     }
   }
   useEffect(() => {
+    console.log(process.env);
     getList();
   },[])
   return (

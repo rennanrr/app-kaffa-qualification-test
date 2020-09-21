@@ -18,7 +18,7 @@ const Clock = () => {
       console.log(err);
     }
   }
-  function convertTime(dateTime) {
+  const convertTime = (dateTime) => {
     let arrayDateTime = dateTime.split('T');
     let arrayDate = arrayDateTime[0].split('-');
     let arrayHour = arrayDateTime[1].split(':');
@@ -34,8 +34,16 @@ const Clock = () => {
       timeZone
     });
   }
-  useEffect(() => {
+
+  const repeat = () => {
     getTime();
+    setTimeout(() => {
+      repeat();
+    } , 60000);
+  }
+
+  useEffect(() => {
+    repeat();
   },[])
   return (
     <Fragment>
