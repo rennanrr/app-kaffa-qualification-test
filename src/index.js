@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import './index.css';
 import './App.css';
-import * as serviceWorker from './serviceWorker';
 import App from './App';
 
 const rootElement = document.getElementById('root');

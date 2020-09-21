@@ -1,31 +1,5 @@
 import React, { Fragment, useState } from 'react';
 
-function arrayR(A, B) {
-  const gridSize = [16, 16];
-  let grid = [];
-  for(let x = 0; x < gridSize[0]; x++) {
-    for(let y = 0; y < gridSize[1]; y++) {
-      grid = [...grid, [x,y]];
-    }
-  }
-  const littleA = [A[0][0] < A[1][0] ? A[0][0] : A[1][0], A[0][1] < A[1][1] ? A[0][1] : A[1][1]];
-  let arrayA = [];
-  for(let x = littleA[0]; x < (littleA[0] + Math.abs(A[0][0]-A[1][0])); x++){
-    for(let y = littleA[1]; y < (littleA[1] + Math.abs(A[0][1]-A[1][1])); y++){
-      arrayA = [...arrayA, [x,y]];
-    }
-  }
-  const littleB = [B[0][0] < B[1][0] ? B[0][0] : B[1][0], B[0][1] < B[1][1] ? B[0][1] : B[1][1]];
-  let arrayB = [];
-  for(let x = littleB[0]; x < (littleB[0] + Math.abs(B[0][0]-B[1][0])); x++){
-    for(let y = littleB[1]; y < (littleB[1] + Math.abs(B[0][1]-B[1][1])); y++){
-      arrayB = [...arrayB, [x,y]];
-    }
-  }
-  return (littleA,littleB);
-}
-
-
 const Rectangles = () => {
 
   const [name, setName] = useState('A');
