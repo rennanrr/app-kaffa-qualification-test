@@ -25,3 +25,5 @@ if (module.hot) {
     renderApp(NextApp);
   });
 }
+
+serviceWorker.unregister();
