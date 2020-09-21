@@ -3,7 +3,7 @@ import { NavLink, Redirect, Route, withRouter } from 'react-router-dom';
 import logo from './Assets/Icons/logo.svg';
 
 const Home = lazy(() => import('./Screens/Home'));
-const Cnpj = lazy(() => import('./Screens/CNPJ'));
+const Cnpj = lazy(() => import('./Screens/Cnpj'));
 const Rectangles = lazy(() => import('./Screens/Rectangles'));
 const TodoList = lazy(() => import('./Screens/TodoList'));
 const Clock = lazy(() => import('./Screens/Clock'));
