@@ -8,7 +8,7 @@ function Cnpj() {
   const isValid = (props) => {
     const cnpj = props.target.value;
     //Check format (Mask and first exercise)
-    if (cnpj.match(/^\d{14}$/)) {
+    if (cnpj.match(/(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)/) || cnpj.match(/^\d{14}$/)) {
       if(isValidCD(cnpj)) {
         setValidation(true);
         setMessage('This is a valid CNPJ.');
