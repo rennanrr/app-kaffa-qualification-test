@@ -6,7 +6,6 @@ const Clock = () => {
   const [localDate, setLocalDate] = useState('');
   const [utcDate, setUtcDate] = useState('');
   async function getTime() {
-    console.log(process.env.NODE_ENV);
     try
     {
       await WorldTime.get(`/ip`)
