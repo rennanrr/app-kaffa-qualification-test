@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Api from '../services/Kaffa';
+import dotenv from 'dotenv';
 
  const TodoList = () => {
   const [list, setList] = useState([]);
@@ -53,7 +54,7 @@ import Api from '../services/Kaffa';
     }
   }
   useEffect(() => {
-    console.log(process.env);
+    console.log(dotenv.config);
     getList();
   },[])
   return (
