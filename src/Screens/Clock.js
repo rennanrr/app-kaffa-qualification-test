@@ -43,40 +43,48 @@ const Clock = () => {
         <h1>Queries server World Clock API</h1>
         <img src={clock} className="img-spining" alt="clock spinning" />
         <table>
-          <td>
-            <tr>
-              World Clock UTC Now: 
-            </tr>
-            <tr>
-              Year: {utcDate.year} 
-            </tr>
-            <tr>
-              Month: {utcDate.month} 
-            </tr>
-            <tr>
-              Day: {utcDate.day} 
-            </tr>
-            <tr>
-              Hour: {utcDate.hour}h{utcDate.minute}min
-            </tr>
-          </td>
-          <td>
-            <tr>
-            Local Time Now:
-            </tr>
-            <tr>
-              Year: {localDate.year} 
-            </tr>
-            <tr>
-              Month: {localDate.month} 
-            </tr>
-            <tr>
-              Day: {localDate.day} 
-            </tr>
-            <tr>
-              Hour: {localDate.hour}h{localDate.minute}min
-            </tr>
-          </td>
+            <thead>
+              <td>
+                World Clock UTC Now: 
+              </td>
+              <td>
+                Local Time Now:
+              </td>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Year: {utcDate.year} 
+                </td>
+                <td>
+                  Year: {localDate.year} 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Month: {utcDate.month} 
+                </td>
+                <td>
+                  Month: {localDate.month} 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Day: {utcDate.day} 
+                </td>
+                <td>
+                  Day: {localDate.day}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Hour: {utcDate.hour}h{utcDate.minute}min
+                </td>
+                <td>
+                Hour: {localDate.hour}h{localDate.minute}min
+                </td>
+              </tr>
+            </tbody>
         </table>
       </div>
     </Fragment>
