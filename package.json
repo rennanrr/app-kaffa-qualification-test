@@ -2,7 +2,7 @@
   "name": "app-kaffa-qualification-test",
   "author": "Rennan Ribas",
   "description": "This is a resolution of Pre-Qualification Test for Kaffa Mobile",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -16,7 +16,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
-
+  "engines": {
+    "node": "6.11.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
