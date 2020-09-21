@@ -44,12 +44,8 @@ const Clock = () => {
         <img src={clock} className="img-spining" alt="clock spinning" />
         <table>
             <thead>
-              <td>
                 World Clock UTC Now: 
-              </td>
-              <td>
                 Local Time Now:
-              </td>
             </thead>
             <tbody>
               <tr>
