@@ -16,12 +16,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
+
   "scripts": {
-    "start": "cross-env NODE_PATH=./src node src/scripts/start.js",
-    "build": "cross-env NODE_PATH=./src node src/scripts/build.js",
-    "test": "cross-env NODE_PATH=./src node scripts/test.js --env=jsdom",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
   },
   "eslintConfig": {
     "extends": "react-app"
