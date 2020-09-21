@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Api from '../services/Kaffa';
 
-function TodoList() {
+ const TodoList = () => {
   const [list, setList] = useState([]);
   const [newItem, setNewItem] = useState('');
 

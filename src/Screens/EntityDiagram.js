@@ -3,7 +3,7 @@ import Gist from 'react-gist';
 import DiagramImg from '../Assets/Images/KaffaDB-Diagram.png';
 import SelectImg from '../Assets/Images/select-innerjoin.png';
 
-function EntityDiagram() {
+const EntityDiagram = () => {
   return (
     <Fragment>
       <div className="App">

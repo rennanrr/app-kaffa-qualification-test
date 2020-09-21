@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-function Cnpj() {
+const Cnpj = () => {
 
   const [validation, setValidation] = useState('');
   const [message, setMessage] = useState('');

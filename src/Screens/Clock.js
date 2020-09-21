@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import clock from '../Assets/Icons/clock.svg';
 import WorldTime from '../services/WorldClock';
 
-function Clock() {
+const Clock = () => {
   const [localDate, setLocalDate] = useState('');
   const [utcDate, setUtcDate] = useState('');
   async function getTime() {

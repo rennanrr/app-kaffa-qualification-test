@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import logo from '../Assets/Icons/logo.svg';
 
-function Home() {
+const Home = () => {
   return (
     <Fragment>
       <div className="App">
