@@ -5,6 +5,7 @@ import './index.css';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
+require('dotenv').config();
 
 const rootElement = document.getElementById('root');
 
