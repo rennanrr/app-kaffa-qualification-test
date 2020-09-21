@@ -1,7 +1,11 @@
 import axios from "axios";
 
-const api = axios.create({
+const Api = axios.create({
   baseURL: "http://localhost:3000/api/v1/"
 });
 
-export default api;
+const WorldTime = axios.create({
+  baseURL: "http://worldtimeapi.org/api/"
+});
+
+export default (Api, WorldTime);

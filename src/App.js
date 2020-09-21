@@ -2,6 +2,7 @@ import React, { Fragment, Suspense, lazy } from 'react';
 import { NavLink, Redirect, Route, withRouter } from 'react-router-dom';
 import logo from './Assets/Icons/logo.svg';
 import TodoList from './Screens/TodoList';
+import Clock from './Screens/Clock';
 
 const Home = lazy(() => import('./Screens/Home'));
 const Cnpj = lazy(() => import('./Screens/Cnpj'));
@@ -60,6 +61,13 @@ function App() {
           <LoadMessage name={"Todo List"}></LoadMessage>
         }>
             <Route path="/todolist" component={TodoList} />
+        </Suspense>
+
+        {/* World Clock Screen */}
+        <Suspense fallback={
+          <LoadMessage name={"Clock"}></LoadMessage>
+        }>
+            <Route path="/worldclock" component={Clock} />
         </Suspense>
 
         {/* In case of root '/' path, redirect to home */}

@@ -6,7 +6,7 @@ function Home() {
     <Fragment>
       <div className="App">
         <h2>This is a Pre-qualification test</h2>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="img-spining" alt="logo" />
         <p>
           Hello World! My name is <code>Rennan Ribas</code> and I like to do that all.
         </p>

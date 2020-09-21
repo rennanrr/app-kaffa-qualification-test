@@ -18,7 +18,6 @@ function TodoList() {
       console.log(err);
     }
   }
-
   async function updateItem(newDescription, i, id) {
     try {
       await Api.put("/todo", {id:id,description:newDescription}).then(res => {
@@ -29,10 +28,6 @@ function TodoList() {
       } catch (err) {
       console.log(err);
     }
-  }
-
-
-  function updateInput(e, i) {
   }
   async function getList() {
     try
