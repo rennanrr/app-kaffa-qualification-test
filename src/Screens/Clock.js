@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import clock from '../Assets/Icons/clock.svg';
-import WorldTime from '../services/Api';
+import WorldTime from '../services/WorldClock';
 
 function Clock() {
   const [localDate, setLocalDate] = useState('');
@@ -17,7 +17,7 @@ function Clock() {
     catch (err){
       console.log(err);
     }
-  }//2020-09-21T00:47:48.824180+00:00
+  }
   function convertTime(dateTime) {
     let arrayDateTime = dateTime.split('T');
     let arrayDate = arrayDateTime[0].split('-');
@@ -41,7 +41,7 @@ function Clock() {
     <Fragment>
       <div className="App">
         <h1>Queries server World Clock API</h1>
-        <img src={clock} className="img-spining" alt="clock" />
+        <img src={clock} className="img-spining" alt="clock spinning" />
         <p>World Clock UTC Now: 
           Year: {utcDate.year} 
           Month: {utcDate.month} 

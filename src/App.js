@@ -1,12 +1,13 @@
 import React, { Fragment, Suspense, lazy } from 'react';
 import { NavLink, Redirect, Route, withRouter } from 'react-router-dom';
 import logo from './Assets/Icons/logo.svg';
-import TodoList from './Screens/TodoList';
-import Clock from './Screens/Clock';
 
 const Home = lazy(() => import('./Screens/Home'));
 const Cnpj = lazy(() => import('./Screens/Cnpj'));
 const Rectangles = lazy(() => import('./Screens/Rectangles'));
+const TodoList = lazy(() => import('./Screens/TodoList'));
+const Clock = lazy(() => import('./Screens/Clock'));
+const EntityDiagram = lazy(() => import('./Screens/EntityDiagram'));
 
 function LoadMessage(props) {
   return (
@@ -31,7 +32,7 @@ function App() {
         <NavLink to="/rectangles">Rectangles</NavLink>
         <NavLink to="/todolist">To Do List</NavLink>
         <NavLink to="/worldclock">World Clock</NavLink>
-        <NavLink to="/diagram">Diagram (Order Management)</NavLink>
+        <NavLink to="/entitydiagram">Entity Relationship Diagram</NavLink>
       </header>
       <Fragment>
 
@@ -68,6 +69,13 @@ function App() {
           <LoadMessage name={"Clock"}></LoadMessage>
         }>
             <Route path="/worldclock" component={Clock} />
+        </Suspense>
+
+        {/* World Entity Relationship Diagram Screen */}
+        <Suspense fallback={
+          <LoadMessage name={"Entity Relationship Diagram"}></LoadMessage>
+        }>
+            <Route path="/entitydiagram" component={EntityDiagram} />
         </Suspense>
 
         {/* In case of root '/' path, redirect to home */}
