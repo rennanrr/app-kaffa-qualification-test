@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const WorldClock = axios.create({
-  baseURL: "http://localhost:3000/api/v1/"
+  baseURL: "http://worldtimeapi.org/api/"
 });
 
 export default WorldClock;
