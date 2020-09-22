@@ -9,9 +9,11 @@ const Rectangles = () => {
   const [r2y, setr2y] = useState(0);
 
   const [list, setList] = useState([]);
+  const [listResponse, setListResponse] = useState([]);
+
   const [message, setMessage] = useState('');
 
-  function calculate() {
+  const calculate = () => {
     const result = intersects(list);
     const area = result.intersected ? areaOfIntersection(result.rectangles) : 0;
     if(result.intersected){
@@ -19,12 +21,18 @@ const Rectangles = () => {
     }
     else
       setMessage(`There is no intersection.`);
-
-    setList([]);
+    console.log(listResponse);
   }
 
-  function addToList() {
+  const addToList = () => {
     setList([...list, {
+      [name]: [
+        [r1x,r1y],
+        [r2x,r2y]
+      ]
+    }]);
+
+    setListResponse([...listResponse, {
       [name]: [
         [r1x,r1y],
         [r2x,r2y]
@@ -40,6 +48,7 @@ const Rectangles = () => {
 
   //Exercise Four
   const areaOfIntersection = (rectangles) => {
+    console.log(rectangles);
     let arrayX1 = [], arrayX2 = [], arrayY1 = [], arrayY2 = [];
     rectangles.forEach((item) => {
       let key = Object.keys(item)[0];
@@ -79,7 +88,7 @@ const Rectangles = () => {
     let intersects = [];
     let intersected = true;
 
-    //Map object rectangles to sort item(rectangle) axes by x1,x2, y1,y2
+    //Map object rectangles to sort item(rectangle) axes by x1,x2, y1,y2)
     rectangles.forEach((item, i ) => {
       //get key("A", for example) and set item to value (coordinates)
       const key = Object.keys(item)[0];
@@ -126,35 +135,105 @@ const Rectangles = () => {
 
   return (
     <Fragment>
-      <div className="App">
-        <h1>Rectangles Intersect</h1>
-        <p>(Exercises Three and Four)</p>
-        <div>
-          <input type="text" className="input-name" value={name} onChange={e => setName(e.target.value)} placeholder="A"></input>
-          = (
-          <input type="number" className="input-number" value={r1x} onChange={e => setr1x(e.target.valueAsNumber || 0)} placeholder="0"></input>, 
-          <input type="number" className="input-number" value={r1y} onChange={e => setr1y(e.target.valueAsNumber || 0)} placeholder="0"></input>; 
-          <input type="number" className="input-number" value={r2x} onChange={e => setr2x(e.target.valueAsNumber || 0)} placeholder="0"></input>,
-          <input type="number" className="input-number" value={r2y} onChange={e => setr2y(e.target.valueAsNumber || 0)} placeholder="0"></input>)
-          <button onClick={addToList}>Add</button>
+      <div className="container">
+        <div className="py-5 mt-4 text-center">
+          <h1>Rectangles Intersect</h1>
+          <p>(Exercises Three and Four)</p>
         </div>
-        {
-          list.map((rectangle, i) => {
-            const key = Object.keys(rectangle)[0];
-            rectangle = rectangle[key];
-            if(rectangle[0]){
+        <div className="row" hidden={message}>
+          <div className="col-md-8 order-md-1">
+            <form>
+              <div className="row">
+                <div className="col-2 m-0">
+                  <input type="text" className="form-control m-0" value={name} onChange={e => setName(e.target.value)} placeholder="A"></input>
+                </div>
+                = (
+                <div className="col-2 m-0">
+                  <input type="number" className="form-control m-0" value={r1x} onChange={e => setr1x(e.target.valueAsNumber || 0)} placeholder="0"></input>
+                </div>
+                ,
+                <div className="col-2 m-0">
+                  <input type="number" className="form-control m-0" value={r1y} onChange={e => setr1y(e.target.valueAsNumber || 0)} placeholder="0"></input>
+                </div>
+                ;
+                <div className="col-2 m-0">
+                  <input type="number" className="form-control m-0" value={r2x} onChange={e => setr2x(e.target.valueAsNumber || 0)} placeholder="0"></input>
+                </div>
+                ;
+                <div className="col-2 m-0">
+                  <input type="number" className="form-control m-0" value={r2y} onChange={e => setr2y(e.target.valueAsNumber || 0)} placeholder="0"></input>
+                </div>
+                )
+              </div>
+              <div className="row mt-2 justify-content-center">
+                <div className="col-2 float-right">
+                  <button onClick={() => addToList()} className="btn btn-primary btn-lg btn-block">Add</button>
+                </div>
+              </div>
+              <hr className="mb-4"></hr>
+            </form>
+          </div>
+          <div className="col-md-4 order-md-2 mb-4" hidden={list.length === 0} >
+            <h4 className="d-flex justify-content-end">
+                <span className="badge badge-warning badge-pill">{list.length}</span>
+            </h4>
+            <ul className="list-group mb-3">
+              {
+                list.map((rectangle, i) => {
+                  const key = Object.keys(rectangle)[0];
+                  rectangle = rectangle[key];
+                  if(rectangle[0]){
+                    return (
+                      <li key={i} className="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                          <h6 className="my-0">{key}</h6>
+                          <small className="text-muted">({rectangle[0][0]}, {rectangle[0][1]}; {rectangle[1][0]}, {rectangle[1][1]})</small>
+                        </div>
+                      </li>
+                    )
+                  }
+                })
+              }
+            </ul>
+            <div className="col">
+              <button className="btn btn-danger btn-lg btn-block" onClick={() => calculate()}>Calculate</button>
+            </div>
+          </div>
+        </div>
+        <div hidden={!message} className="col-5">
+        <hr className="mb-4"></hr>
+          <h4>{message}</h4>
+          <hr className="mb-1"></hr>
+          <div>Intersection between:</div>
+          {
+            message && listResponse.map((rectangle, i) => {
+              const key = Object.keys(rectangle)[0];
+              rectangle = rectangle[key];
+              if(rectangle[0]){
+                return (
+                  <div key={i}>
+                    {key} = ({rectangle[0][0]}, {rectangle[0][1]}; {rectangle[1][0]}, {rectangle[1][1]})
+                  </div>
+                )
+              }
+            })
+          }
+          <hr className="mb-1"></hr>
+          <div>Sorted:</div>
+          {
+            message && list.map((rectangle, i) => {
+              const key = Object.keys(rectangle)[0];
+              rectangle = rectangle[key];
+              
               return (
                 <div key={i}>
-                  {key} = ({rectangle[0][0]}, {rectangle[0][1]}; {rectangle[1][0]}, {rectangle[1][1]})
+                  {key} (x1: {rectangle.x1}, x2: {rectangle.x1}; y1: {rectangle.y1}, y2: {rectangle.y1})
                 </div>
-              )
-            }
-          })
-        }
-        <button hidden={list.length === 0} onClick={calculate}>Calculate</button>
-      <div hidden={list.length !== 0}>{message}</div>
+                )
+            })
+          }
+        </div>
       </div>
-
     </Fragment>
   )
 }

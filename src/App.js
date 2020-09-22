@@ -26,14 +26,14 @@ function LoadMessage(props) {
 function App() {
   return (
     <div className="">
-      <header className="topnav">
+      <nav className="topnav">
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/cnpj">CNPJ</NavLink>
         <NavLink to="/rectangles">Rectangles</NavLink>
         <NavLink to="/todolist">To Do List</NavLink>
         <NavLink to="/worldclock">World Clock</NavLink>
         <NavLink to="/entitydiagram">Entity Relationship Diagram</NavLink>
-      </header>
+      </nav>
       <Fragment>
 
         {/* Home Screen */}

@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Api from '../services/Kaffa';
-import dotenv from 'dotenv';
 
  const TodoList = () => {
   const [list, setList] = useState([]);
@@ -54,29 +53,45 @@ import dotenv from 'dotenv';
     }
   }
   useEffect(() => {
-    console.log(dotenv.config);
     getList();
   },[])
   return (
     <Fragment>
       <div className="App">
         <h1>Todo List</h1>
-        <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text"></input>
-        <button onClick={() => createItem()}>Add</button>
-        <table>
-          <tbody>
-        {
-          list.map((item, i) => {
-            return (
-              <tr key={item.id}>
-                <td><input value={item.description} onChange={e => updateItem(e.target.value, i, item.id)}></input></td>
-                <td><button onClick={() => deleteItem(item.id)}>Delete this stuff, man!!</button></td>
-              </tr>
-              )
-          })
-        }
-        </tbody>
-        </table>
+        <p>(Exercise Five)</p>
+        <div className="col-md-6 order-md-2 mb-4" hidden={list.length === 0}>
+        <hr className="mb-2"></hr>
+        <form>
+          <div className="row mb-3">
+            <div className="col-8">
+              <input value={newItem} className="form-control m-0" onChange={e => setNewItem(e.target.value)} type="text"></input>
+            </div>
+            <div className="col-4 flex">
+              <button className="btn btn-dark btn-block" onClick={() => createItem()}>Add</button>
+            </div>
+          </div>
+        </form>
+            <ul className="list-group mb-3">
+              {
+                list.map((item, i) => {
+                  return (
+                      <li key={item.id} className="list-group-item lh-condensed">
+                        <div className="row">
+                          <div className="col-10">
+                            <input className="form-control m-0" value={item.description} onChange={e => updateItem(e.target.value, i, item.id)}></input>
+                          </div>
+                          <div className="col-2">
+                            <button className="btn btn-danger btn-lg btn-block" onClick={() => deleteItem(item.id)}>Delete</button>
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  }
+                )
+              }
+            </ul>
+          </div>
       </div>
     </Fragment>
   )

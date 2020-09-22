@@ -49,6 +49,7 @@ const Clock = () => {
     <Fragment>
       <div className="App">
         <h1>Queries server World Clock API</h1>
+        <p>(Exercise 6)</p>
         <img src={clock} className="img-spining" alt="clock spinning" />
         <table>
             <thead>

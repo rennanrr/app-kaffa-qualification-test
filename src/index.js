@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
@@ -9,7 +9,6 @@ import App from './App';
 const rootElement = document.getElementById('root');
 
 const renderApp = Component => {
-  require('dotenv').config();
   ReactDOM.render(
       <HashRouter>
         <Component />

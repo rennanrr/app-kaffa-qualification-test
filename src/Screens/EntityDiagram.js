@@ -7,7 +7,8 @@ const EntityDiagram = () => {
   return (
     <Fragment>
       <div className="App">
-        <h2>8) Entity Relationship Diagram - Simple Order Manager</h2>
+        <h2>Entity Relationship Diagram - Simple Order Manager</h2>
+        <p>(Exercises Eight)</p>
         <img src={DiagramImg} alt="Entity Relationship Diagram Scheme" className="img-diagram"/>
         <p>
           Bellow is the SQL queries to create and migrate some example data to DB.
