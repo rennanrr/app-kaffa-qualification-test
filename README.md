@@ -1,9 +1,5 @@
 # Kaffa - Pre-qualification test (v1.5)
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 Developed by Rennan Ribas.
 
 ## Tech Stack
@@ -16,7 +12,7 @@ The following tools were used in the construction of the project:
 - Axios
 - Bootstrap
 
-### Server (NodeJs)
+### [Server NodeJs](https://github.com/rennanrr/api-kaffa-qualification-test)
 - Express
 - Sequelize
 - PostgreSQL
@@ -27,11 +23,12 @@ The following tools were used in the construction of the project:
 
 ## Demo
 ### This project is uploaded on Heroku
-[This frontend project](https://app-kaffa-test.herokuapp.com/)
+[Preview online here!!](https://app-kaffa-test.herokuapp.com/)
 
 And
 
-[Rest API server](https://api-kaffa-test.herokuapp.com/)
+[Preview Rest API server](https://api-kaffa-test.herokuapp.com/)
+(try get /todo)
 
 
 ## Installation
