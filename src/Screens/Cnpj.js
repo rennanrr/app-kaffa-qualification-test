@@ -33,7 +33,7 @@ const Cnpj = () => {
   const isValidCD = (cnpj) => {
       const arrayCnpj = cnpj.replace(/\D/g,'').split('');
       const arrayWeight = [[5,4,3,2,9,8,7,6,5,4,3,2], [6,5,4,3,2,9,8,7,6,5,4,3,2]];
-      var calcCD = [0, 0];
+      let calcCD = [0, 0];
 
 
       for(let x = 0; x < arrayWeight.length; x++) {
